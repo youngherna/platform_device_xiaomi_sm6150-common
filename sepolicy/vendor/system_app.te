@@ -3,3 +3,7 @@ type sysfs_doze, sysfs_type, fs_type;
 allow system_app sysfs_doze:file rw_file_perms;
 
 get_prop(system_app, vendor_persist_camera_prop)
+
+# allow system apps to read battery status
+r_dir_file(system_app, vendor_sysfs_battery_supply)
+allow system_app vendor_sysfs_battery_supply:file { open read };
